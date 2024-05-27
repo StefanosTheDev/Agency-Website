@@ -1,6 +1,10 @@
-const express = require('express');
-const path = require('path');
-const serveStatic = require('serve-static');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import serveStatic from 'serve-static';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
