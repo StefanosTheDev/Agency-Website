@@ -174,7 +174,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 @font-face {
   font-family: "Jura";
   src: url("./assets/fonts/Jura.ttf");
@@ -192,10 +192,9 @@ export default {
   width: 100%;
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
+body, html {
+  margin: 0px;
+  padding: 0px;
   overflow-x: hidden;
   height: 100%;
   width: 100%;
@@ -240,6 +239,7 @@ main {
   border-radius: 66px;
   padding: 8px 32px;
   border: none;
+  z-index: 2;
 }
 
 .btn-secondary {
@@ -460,7 +460,7 @@ a{
 }
 
 .newsletter-input {
-  padding: 16px;
+  padding: 19px;
   border-radius: 20px 0 0 20px;
   background-color: white;
   border: none;
