@@ -3,7 +3,12 @@
     <header class="header-container">
       <section class="brand-section">
         <img src="./assets/logo.svg" alt="Logo" class="logo" />
-        <button class="btn-primary">Sign Up for the Newsletter</button>
+        <button
+          class="btn-primary"
+          @click="scrollToSection('newsletterSection')"
+        >
+          Sign Up for the Newsletter
+        </button>
       </section>
       <section class="main-content">
         <video
@@ -18,33 +23,47 @@
             The Future <span class="highlight">Awaits</span>
           </h2>
           <div class="actions">
-            <button class="btn-primary">Our Services</button>
-            <button class="btn-secondary">Let’s Talk</button>
+            <button
+              class="btn-primary"
+              @click="scrollToSection('servicesSection')"
+            >
+              Our Services
+            </button>
+            <button
+              class="btn-secondary"
+              @click="scrollToSection('contactSection')"
+            >
+              Let’s Talk
+            </button>
           </div>
         </div>
       </section>
-      <img src="./assets/icons/arrow.svg" class="corner-image" alt="Scroll" />
+      <img
+        src="./assets/icons/arrow.svg"
+        class="corner-image"
+        alt="Scroll"
+        @click="scrollToSection('servicesSection')"
+      />
     </header>
     <main>
-      <section class="services-wrapper">
+      <section class="services-wrapper fade-in" ref="servicesSection">
         <h2>Our Services</h2>
         <div class="services-grid">
           <article class="service-card">
             <div class="service-icon">
-              <img src="./assets/icons/consulting.svg"/>
+              <img src="./assets/icons/consulting.svg" />
             </div>
-            <div  class="service-card-content">
+            <div class="service-card-content">
               <h4>Consulting</h4>
               <p>
                 This is an overview of what kinds of consulting we do and what
                 that even means. Here is more description.
               </p>
             </div>
-
           </article>
           <article class="service-card">
             <div class="service-icon">
-              <img src="./assets/icons/optimization.svg"/>
+              <img src="./assets/icons/optimization.svg" />
             </div>
             <div class="service-card-content">
               <h4>Automated Process Optimization</h4>
@@ -56,20 +75,19 @@
           </article>
           <article class="service-card">
             <div class="service-icon">
-              <img src="./assets/icons/chatbot.svg"/>
+              <img src="./assets/icons/chatbot.svg" />
             </div>
-            <div  class="service-card-content">
+            <div class="service-card-content">
               <h4>ChatBot Development</h4>
               <p>
                 This is an overview of what kinds of consulting we do and what
                 that even means. Here is more description.
               </p>
             </div>
-
           </article>
         </div>
       </section>
-      <section class="team-section">
+      <section class="team-section fade-in" ref="teamSection">
         <h3>Meet The Team</h3>
         <div class="team-grid">
           <article class="team-member">
@@ -92,7 +110,7 @@
           </article>
         </div>
       </section>
-      <section class="form-container">
+      <section class="form-container fade-in" ref="contactSection">
         <aside class="form-info">
           <h2 class="form-info-title">
             The Future <span class="highlight">Awaits</span>
@@ -135,10 +153,8 @@
           <button type="submit" class="btn-primary full-width">Submit</button>
         </form>
       </section>
-      <section class="newsletter-section">
-        <h3>
-          Join Our <span class="highlight">Newsletter</span>
-        </h3>
+      <section class="newsletter-section fade-in" ref="newsletterSection">
+        <h3>Join Our <span class="highlight">Newsletter</span></h3>
         <p class="newsletter-description">
           Sign up for our newsletter to receive updates as we make moves that
           will change the industry forever!
@@ -156,21 +172,79 @@
       </section>
     </main>
     <footer class="footer-container">
-        <div class="company-info">
-          <img src="./assets/secondary_logo.svg" alt="Logo" class="logo" />
-          <div class="company-details">
-            <h3>SimpleStack AI</h3>
-            <p>Copyright ©2024 - All Rights Reserved</p>
-          </div>
+      <div class="company-info">
+        <img src="./assets/secondary_logo.svg" alt="Logo" class="logo" />
+        <div class="company-details">
+          <h3>SimpleStack AI</h3>
+          <p>Copyright ©2024 - All Rights Reserved</p>
         </div>
-        <a href="#" class="back-to-top">Back To Top</a>
+      </div>
+      <a href="#" class="back-to-top" @click="scrollToTop">Back To Top</a>
     </footer>
   </div>
 </template>
 
 <script lang="ts">
+import { onMounted, ref } from "vue";
+
 export default {
-  name: "SimpleStack",
+  name: "CoreStack",
+  setup() {
+    const servicesSection = ref(null);
+    const teamSection = ref(null);
+    const contactSection = ref(null);
+    const newsletterSection = ref(null);
+
+    const sections = {
+      servicesSection,
+      teamSection,
+      contactSection,
+      newsletterSection,
+    };
+
+    const scrollToSection = (sectionName) => {
+      const sectionRef = sections[sectionName];
+      if (sectionRef && sectionRef.value) {
+        sectionRef.value.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+          inline: "center",
+        });
+      }
+    };
+
+    const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    onMounted(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      Object.values(sections).forEach((section) => {
+        if (section.value) {
+          observer.observe(section.value);
+        }
+      });
+    });
+
+    return {
+      servicesSection,
+      teamSection,
+      contactSection,
+      newsletterSection,
+      scrollToSection,
+      scrollToTop,
+    };
+  },
 };
 </script>
 
@@ -180,7 +254,7 @@ export default {
   src: url("./assets/fonts/Jura.ttf");
 }
 
-.input{
+.input {
   border: none;
   border-bottom: 1px solid white;
   background-color: transparent;
@@ -192,19 +266,20 @@ export default {
   width: 100%;
 }
 
-body, html {
+body,
+html {
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
   height: 100%;
   width: 100%;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: 160px;
   background-color: #000;
   padding: 60px;
 }
@@ -212,7 +287,7 @@ body, html {
 main {
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 240px;
 }
 
 .header-container {
@@ -240,33 +315,43 @@ main {
   padding: 8px 32px;
   border: none;
   z-index: 2;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0055cc;
 }
 
 .btn-secondary {
   color: #fff;
   background-color: transparent;
-  font: 400 20px Segoe UI, sans-serif;
+  font: 400 16px Segoe UI, sans-serif;
   border-radius: 66px;
   padding: 8px 32px;
   border: 1px solid #fff;
+  cursor: pointer;
 }
 
-h1{
+.btn-secondary:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+h1 {
   color: #fff;
   font-family: Jura, sans-serif;
   font-size: 64px;
   font-weight: 700;
 }
 
-h2{
+h2 {
   color: #fff;
   font-family: Jura, sans-serif;
   font-size: 40px;
   font-weight: 700;
-
 }
 
-h3{
+h3 {
   color: #fff;
   font-family: Jura, sans-serif;
   font-size: 32px;
@@ -274,7 +359,7 @@ h3{
   margin: 0px;
 }
 
-h4{
+h4 {
   color: #0075ff;
   font-family: Jura, sans-serif;
   font-size: 24px;
@@ -282,23 +367,23 @@ h4{
   margin: 0px;
 }
 
-h5{
+h5 {
   color: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   font-size: 18px;
   font-weight: 200;
   margin: 0px;
 }
 
-P{
+P {
   color: #fff;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   font-size: 18px;
   font-weight: normal;
   margin: 0px;
 }
 
-a{
+a {
   text-decoration: none;
 }
 
@@ -337,6 +422,7 @@ a{
   justify-content: center;
   z-index: 2;
   position: relative;
+  text-align: left;
 }
 
 .highlight {
@@ -345,6 +431,7 @@ a{
 
 .actions {
   display: flex;
+  flex-direction: row;
   gap: 20px;
   font-size: 20px;
   color: #fff;
@@ -356,6 +443,7 @@ a{
   width: 16px;
   padding: 8px;
   border-radius: 50%;
+  cursor: pointer;
 }
 
 .services-wrapper {
@@ -381,7 +469,7 @@ a{
 }
 
 .service-card-content {
-  padding: 32px 64px;
+  padding: 48px 48px;
   background-color: #121212;
   border-radius: 16px;
   display: flex;
@@ -418,7 +506,7 @@ a{
   width: 40%;
   display: flex;
   flex-direction: column;
-  gap: 16px
+  gap: 16px;
 }
 
 .team-image {
@@ -477,6 +565,11 @@ a{
   cursor: pointer;
   margin-left: -5px;
   width: 20%;
+  cursor: pointer;
+}
+
+.sign-up-button:hover {
+  background-color: #0055cc;
 }
 
 .footer-container {
@@ -500,7 +593,7 @@ a{
   flex-direction: column;
 }
 
-.back-to-top{
+.back-to-top {
   color: #fff;
   background-color: transparent;
   font: 400 20px Segoe UI, sans-serif;
@@ -509,10 +602,15 @@ a{
   border: 1px solid #fff;
   width: 30%;
   text-align: center;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 @media (max-width: 900px) {
-
   .services-grid {
     gap: 32px;
     justify-content: center;
@@ -531,7 +629,7 @@ a{
 
   .newsletter-input {
     padding: 8px;
-    border-radius: 66PX;
+    border-radius: 66px;
     background-color: white;
     border: none;
     width: 100%;
@@ -557,35 +655,45 @@ a{
     gap: 16px;
   }
 
-  .back-to-top{
-  color: #fff;
-  background-color: transparent;
-  font: 400 20px Segoe UI, sans-serif;
-  border-radius: 66px;
-  padding: 8px 32px;
-  border: 1px solid #fff;
-  width:100%;
-}
+  .back-to-top {
+    color: #fff;
+    background-color: transparent;
+    font: 400 20px Segoe UI, sans-serif;
+    border-radius: 66px;
+    padding: 8px 32px;
+    border: 1px solid #fff;
+    width: 100%;
+  }
 
-.footer-container {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  gap: 16px;
+  .footer-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
 }
-}
-
-
 
 @media (max-width: 780px) {
-
   p {
     font-size: 16px;
   }
-  
+
+  .content-overlay {
+    text-align: center;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 16px;
+  }
+
   .service-card {
     width: 80%;
+  }
+
+  .service-card-content {
+    height: 200px;
   }
 
   .form-container {
@@ -615,7 +723,7 @@ a{
     z-index: 1;
     clip-path: inset(0 20%);
   }
-  
+
   .header-container {
     display: flex;
     flex-direction: column;
@@ -623,5 +731,28 @@ a{
     height: calc(100vh - 60px);
     position: relative;
   }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
