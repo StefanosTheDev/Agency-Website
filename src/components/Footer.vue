@@ -3,7 +3,7 @@
       <div class="company-info">
         <img src="../assets/secondary_logo.svg" alt="Logo" class="logo" />
         <div class="company-details">
-          <h4>SimpleStack AI</h4>
+          <h4>ClearStack AI</h4>
           <p>Copyright ©2024 - All Rights Reserved</p>
         </div>
       </div>
