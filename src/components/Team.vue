@@ -11,11 +11,10 @@
           alt="Tiara Knightley"
         />
         <div class="member-content">
-          <h2>Tiara Knightley</h2>
+          <h2>Stefanos Sophocleous</h2>
           <h5>Chief Executive Officer</h5>
           <div class="divider"></div>
-          <p>This is an overview of what kinds of consulting we do and what that even means. Here is more description. </p>
-        </div>
+          Stefanos Sophocloues, a former DOD contractor in the Aerospace & Defense industry, excelled in architecting and implementing complex solutions at Luke Airforce Base, Phoenix Arizona. With a background in fullstack development, cybersecurity and networking Stefanos brings the full picture approach for our customers. Specializing in merging automation tools, AI, and software development, Stefanos builds innovative solutions that enhance training and operational capabilities. </div>
       </article>
       <article class="team-member">
         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e484c42703f5e4c2e114fa79be4404eebee385b79d1462f44eedbcb5be86d1?apiKey=0b31aaea2fd84e958e6f2fd0d92347c4&"
@@ -23,8 +22,8 @@
           alt="Tiara Knightley"
         />
         <div class="member-content">
-          <h2>Tiara Knightley</h2>
-          <h5>Chief Executive Officer</h5>
+          <h2>Stavro Sophocleous</h2>
+          <h5>Chief Operarting Officer</h5>
           <div class="divider"></div>
           <p>This is an overview of what kinds of consulting we do and what that even means. Here is more description. </p>
         </div>
