@@ -5,8 +5,13 @@
       <a href="#">Services</a>
       <a href="#">Our Team</a>
       <a href="#">Contact</a>
+
+      <!-- Only include the button in the mobile nav links -->
+      <button v-if="isMobile" class="btn-tertiary mobile-btn">Schedule A Demo</button>
     </div>
-    <button class="btn-tertiary">Schedule A Demo</button>
+
+    <!-- Exclude the button from desktop nav links -->
+    <button v-if="!isMobile" class="btn-tertiary">Schedule A Demo</button>
     <div class="hamburger" @click="toggleMenu">
       <div class="line" :class="{ 'line1': isOpen }"></div>
       <div class="line" :class="{ 'line2': isOpen }"></div>
@@ -14,6 +19,7 @@
     </div>
   </nav>
 </template>
+
 
 <script>
 export default {
@@ -58,6 +64,7 @@ export default {
   background-color: #F5F9FF;
   width: 100%;
   box-sizing: border-box;
+  height: 120px;
 }
 
 .nav-links {
@@ -78,20 +85,37 @@ export default {
 
 .nav-links-mobile {
   display: none;
+  box-sizing: border-box;
   flex-direction: column;
   gap: 20px;
   background-color: white;
   position: absolute;
-  top: 80px;
+  top: 120px;
   left: 0;
   width: 100%;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
+  border-radius: 0px;
+  border-top: 1px solid #0075FF;
+  background-color: #F5F9FF;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.nav-links-mobile > a {
+  padding: 12px;
+  border-bottom: 1px solid #0075FF;
+}
+
+.nav-links-mobile > .mobile-btn {
+  align-self: center;
 }
 
 .nav-links-open {
   display: flex !important;
+}
+
+.mobile-btn {
+  width: 100%;
 }
 
 .logo {
@@ -106,14 +130,14 @@ export default {
 }
 
 .hamburger .line {
-  width: 25px;
+  width: 28px;
   height: 3px;
   background-color: #0075FF;
   transition: 0.3s;
 }
 
 .hamburger .line1 {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(5.5px, 5.5px);
 }
 
 .hamburger .line2 {
@@ -121,10 +145,15 @@ export default {
 }
 
 .hamburger .line3 {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(5.5px, -5.5px);
 }
 
 @media (max-width: 768px) {
+
+  .logo {
+    height: 48px;
+  }
+
   .nav-links {
     display: none;
   }

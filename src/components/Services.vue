@@ -112,21 +112,6 @@ export default {
   .services-words {
     width: 30%;
   }
-  .btn-primary {
-  background-color: #0075ff;
-  color: #fff;
-  font: 500 16px Segoe UI, sans-serif;
-  border-radius: 66px;
-  padding: 12px 32px;
-  border: none;
-  z-index: 2;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn-primary:hover {
-  background-color: #0055cc;
-}
 
   .services-grid {
     width: 60%;
@@ -144,6 +129,16 @@ export default {
 @media (min-width: 1024px) {
   .service-card {
     width: 32%;
+  }
+}
+
+@media (max-width: 600px) {
+  .services-container {
+    padding: 20px;
+  }
+
+  .services-wrapper {
+    padding: 20px;
   }
 }
 </style>

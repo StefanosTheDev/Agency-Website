@@ -37,10 +37,6 @@ export default defineComponent({
 </script>
 
 <style>
-@font-face {
-  font-family: "Jura";
-  src: url("./assets/fonts/Jura.ttf");
-}
 
 body,
 html {
@@ -67,6 +63,34 @@ main {
   flex-direction: column;
   width: 100%;
   height: 100vh;
+}
+
+.btn-primary {
+  color: white;
+  background-color: #0075FF;
+  font: 500 16px Segoe UI, sans-serif;
+  border-radius: 66px;
+  padding: 12px 32px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #003B80;
+}
+
+.btn-secondary {
+  color: #0075ff;
+  background-color: #F5F9FF;
+  font: 500 16px Segoe UI, sans-serif;
+  border-radius: 66px;
+  padding: 12px 32px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #B2D6FF;
 }
 
 .btn-tertiary {
@@ -121,5 +145,27 @@ a {
 
 .highlight {
   color: #0075FF;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+
+  h3 {
+    font-size: 32px;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+
+  p {
+    font-size: 16px;
+  }
 }
 </style>

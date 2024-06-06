@@ -76,6 +76,7 @@ export default {
 .actions {
   display: flex;
   flex-direction: row;
+  width: 100%;
   gap: 20px;
   margin-top: 24px;
   flex-wrap: wrap;
@@ -87,12 +88,12 @@ export default {
   position: absolute;
   width: 20%;
   max-width: 500px;
+  min-width: 200px;
 }
 
 .top-right-corner-image {
   top: 0;
   right: 0;
-  max-width: 500px;
 }
 
 .bottom-left-corner-image {
@@ -151,7 +152,7 @@ export default {
   font-weight: 500;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   .title {
     font-size: 3rem;
   }
@@ -161,8 +162,13 @@ export default {
   }
 
   .actions {
+    flex-direction: column;
     gap: 40px;
     margin-top: 48px;
+  }
+
+  .actions button {
+    width: 100%;
   }
 }
 
