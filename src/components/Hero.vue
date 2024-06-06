@@ -25,6 +25,7 @@
       alt="Bottom Left Corner"
       class="bottom-left-corner-image"
     />
+ 
   </section>
 </template>
 
@@ -85,12 +86,13 @@ export default {
 .bottom-left-corner-image {
   position: absolute;
   width: 20%;
-  max-width: 200px;
+  max-width: 500px;
 }
 
 .top-right-corner-image {
   top: 0;
   right: 0;
+  max-width: 500px;
 }
 
 .bottom-left-corner-image {
@@ -125,6 +127,28 @@ export default {
 
 .btn-secondary:hover {
   background-color: #B2D6FF;
+}
+
+.partner-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background-color: #F5F9FF;
+  color: #0075ff;
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.partner-bar span {
+  font-size: 16px;
+  font-weight: 500;
 }
 
 @media (min-width: 600px) {
