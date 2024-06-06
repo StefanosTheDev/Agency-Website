@@ -1,251 +1,45 @@
 <template>
   <div class="main-wrapper">
     <header class="header-container">
-      <section class="brand-section">
-        <img src="./assets/logo.svg" alt="Logo" class="logo" />
-        <button
-          class="btn-primary"
-          @click="scrollToSection('newsletterSection')"
-        >
-          Sign Up for the Newsletter
-        </button>
-      </section>
-      <section class="main-content">
-        <video
-          src="./assets/hero_animation.mp4"
-          autoplay
-          loop
-          muted
-          class="background-image"
-        ></video>
-        <div class="content-overlay">
-          <h2 class="tagline">
-            The Future <span class="highlight">Awaits</span>
-          </h2>
-          <div class="actions">
-            <button
-              class="btn-primary"
-              @click="scrollToSection('servicesSection')"
-            >
-              Our Services
-            </button>
-            <button
-              class="btn-secondary"
-              @click="scrollToSection('contactSection')"
-            >
-              Let’s Talk
-            </button>
-          </div>
+      <navbar class="navbar">
+        <img src="./assets/logo.svg" alt="ClearStack AI" class="logo" />
+        <div class="nav-links">
+          <a href="#">Services</a>
+          <a href="#">Our Team</a>
+          <a href="#">Contact</a>
         </div>
-      </section>
-      <img
-        src="./assets/icons/arrow.svg"
-        class="corner-image"
-        alt="Scroll"
-        @click="scrollToSection('servicesSection')"
-      />
+        <button class="btn-tertiary">Our Services</button>
+      </navbar>
+      <HeaderComponent />
     </header>
+    
     <main>
-      <section class="services-wrapper fade-in" ref="servicesSection">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="service-icon">
-              <img src="./assets/icons/consulting.svg" />
-            </div>
-            <div class="service-card-content">
-              <h4>Consulting</h4>
-              <p>
-                This is an overview of what kinds of consulting we do and what
-                that even means. Here is more description.
-              </p>
-            </div>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">
-              <img src="./assets/icons/optimization.svg" />
-            </div>
-            <div class="service-card-content">
-              <h4>Automated Process Optimization</h4>
-              <p>
-                This is an overview of what kinds of consulting we do and what
-                that even means. Here is more description.
-              </p>
-            </div>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">
-              <img src="./assets/icons/chatbot.svg" />
-            </div>
-            <div class="service-card-content">
-              <h4>ChatBot Development</h4>
-              <p>
-                This is an overview of what kinds of consulting we do and what
-                that even means. Here is more description.
-              </p>
-            </div>
-          </article>
-        </div>
-      </section>
-      <section class="team-section fade-in" ref="teamSection">
-        <h3>Meet The Team</h3>
-        <div class="team-grid">
-          <article class="team-member">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e484c42703f5e4c2e114fa79be4404eebee385b79d1462f44eedbcb5be86d1?apiKey=0b31aaea2fd84e958e6f2fd0d92347c4&"
-              class="team-image"
-              alt="Tiara Knightley"
-            />
-            <h4 style="color: white">Tiara Knightley</h4>
-            <h5>Chief Executive Officer</h5>
-          </article>
-          <article class="team-member">
-            <img
-              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1914a08d2aaf5d1825ffd210497abc53e932c791b24a776e96c90ff425cad0b4?apiKey=0b31aaea2fd84e958e6f2fd0d92347c4&"
-              class="team-image"
-              alt="Jenna Ortega"
-            />
-            <h4 style="color: white">Jenna Ortega</h4>
-            <h5>Chief Operations Officer</h5>
-          </article>
-        </div>
-      </section>
-      <section class="form-container fade-in" ref="contactSection">
-        <aside class="form-info">
-          <h2 class="form-info-title">
-            The Future <span class="highlight">Awaits</span>
-          </h2>
-          <p class="form-info-description">
-            This is an overview of what kinds of consulting we do and what that
-            even means. Here is more description. Woohoo here is more about our
-            team just keep on reading! Oh yeah, you are still going on and on.
-          </p>
-        </aside>
-        <form class="contact-form">
-          <input
-            type="text"
-            id="nameInput"
-            class="input"
-            placeholder="Name..."
-            aria-label="Name..."
-          />
-          <input
-            type="email"
-            id="emailInput"
-            class="input"
-            placeholder="Email..."
-            aria-label="Email..."
-          />
-          <input
-            type="text"
-            id="budgetInput"
-            class="input"
-            placeholder="What is your Budget for this project?"
-            aria-label="What is your Budget for this project?"
-          />
-          <input
-            type="text"
-            id="helpInput"
-            class="input"
-            placeholder="How can we help?"
-            aria-label="How can we help?"
-          />
-          <button type="submit" class="btn-primary full-width">Submit</button>
-        </form>
-      </section>
-      <section class="newsletter-section fade-in" ref="newsletterSection">
-        <h3>Join Our <span class="highlight">Newsletter</span></h3>
-        <p class="newsletter-description">
-          Sign up for our newsletter to receive updates as we make moves that
-          will change the industry forever!
-        </p>
-        <form class="newsletter-form">
-          <input
-            type="email"
-            id="newsletterEmail"
-            class="newsletter-input"
-            placeholder="Email Address Here..."
-            aria-label="Email Address Here..."
-          />
-          <button type="submit" class="sign-up-button">Sign Up</button>
-        </form>
-      </section>
+      <ServicesComponent />
+      <TeamComponent />
+      <ContactComponent />
     </main>
-    <footer class="footer-container">
-      <div class="company-info">
-        <img src="./assets/secondary_logo.svg" alt="Logo" class="logo" />
-        <div class="company-details">
-          <h3>SimpleStack AI</h3>
-          <p>Copyright ©2024 - All Rights Reserved</p>
-        </div>
-      </div>
-      <a href="#" class="back-to-top" @click="scrollToTop">Back To Top</a>
-    </footer>
+    <FooterComponent />
   </div>
 </template>
 
 <script lang="ts">
-import { onMounted, ref } from "vue";
+import { defineComponent } from 'vue';
+import HeaderComponent from './components/Hero.vue';
+import ServicesComponent from './components/Services.vue';
+import TeamComponent from './components/Team.vue';
+import ContactComponent from './components/Contact.vue';
+import FooterComponent from './components/Footer.vue';
 
-export default {
-  name: "CoreStack",
-  setup() {
-    const servicesSection = ref(null);
-    const teamSection = ref(null);
-    const contactSection = ref(null);
-    const newsletterSection = ref(null);
-
-    const sections = {
-      servicesSection,
-      teamSection,
-      contactSection,
-      newsletterSection,
-    };
-
-    const scrollToSection = (sectionName) => {
-      const sectionRef = sections[sectionName];
-      if (sectionRef && sectionRef.value) {
-        sectionRef.value.scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-          inline: "center",
-        });
-      }
-    };
-
-    const scrollToTop = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
-
-    onMounted(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("visible");
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
-
-      Object.values(sections).forEach((section) => {
-        if (section.value) {
-          observer.observe(section.value);
-        }
-      });
-    });
-
-    return {
-      servicesSection,
-      teamSection,
-      contactSection,
-      newsletterSection,
-      scrollToSection,
-      scrollToTop,
-    };
+export default defineComponent({
+  name: 'App',
+  components: {
+    HeaderComponent,
+    ServicesComponent,
+    TeamComponent,
+    ContactComponent,
+    FooterComponent
   },
-};
+});
 </script>
 
 <style>
@@ -254,16 +48,50 @@ export default {
   src: url("./assets/fonts/Jura.ttf");
 }
 
-.input {
-  border: none;
-  border-bottom: 1px solid white;
-  background-color: transparent;
-  color: white;
-  padding: 8px;
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 140px;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F5F9FF;
+  padding: 0 60px;
 }
 
-.full-width {
+.nav-links {
+  display: flex;
+  gap: 64px;
+  padding: 24px;
+  background-color: white;
+  border-radius: 98px;
+}
+
+.nav-links a {
+  color: #0075FF;
+  font-weight: normal;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.logo {
+  height: 60px;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100vh;
+}
+
+.input {
+  border: none;
+  border-bottom: 1px solid #9C9C9C;
+  background-color: transparent;
+  color: #001329;
+  padding: 8px;
 }
 
 body,
@@ -279,40 +107,19 @@ html {
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 160px;
-  background-color: #000;
-  padding: 60px;
 }
 
 main {
   display: flex;
   flex-direction: column;
-  gap: 240px;
-}
-
-.header-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: calc(100vh - 120px);
-  position: relative;
-}
-
-.brand-section {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  gap: 0px;
 }
 
 .btn-primary {
   background-color: #0075ff;
   color: #fff;
-  font: 400 16px Segoe UI, sans-serif;
+  font: 500 16px Segoe UI, sans-serif;
   border-radius: 66px;
-  padding: 8px 32px;
+  padding: 12px 32px;
   border: none;
   z-index: 2;
   cursor: pointer;
@@ -323,436 +130,70 @@ main {
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: transparent;
-  font: 400 16px Segoe UI, sans-serif;
+  color: #0075ff;
+  background-color: #F5F9FF;
+  font: 500 16px Segoe UI, sans-serif;
   border-radius: 66px;
-  padding: 8px 32px;
-  border: 1px solid #fff;
+  padding: 12px 32px;
+  border: none;
   cursor: pointer;
 }
 
 .btn-secondary:hover {
-  background-color: #fff;
-  color: #000;
+  background-color: #B2D6FF;
+}
+
+.btn-tertiary {
+  color: #0075ff;
+  background-color: #F5F9FF;
+  font: 500 16px Segoe UI, sans-serif;
+  border-radius: 66px;
+  padding: 12px 32px;
+  border: 1px solid #0075FF;
+  cursor: pointer;
+}
+
+.btn-tertiary:hover {
+  background-color: #B2D6FF;
 }
 
 h1 {
-  color: #fff;
-  font-family: Jura, sans-serif;
+  color: #0075FF;
   font-size: 64px;
   font-weight: 700;
 }
 
 h2 {
-  color: #fff;
-  font-family: Jura, sans-serif;
-  font-size: 40px;
+  color: #001329;
+  font-size: 32px;
   font-weight: 700;
 }
 
 h3 {
-  color: #fff;
-  font-family: Jura, sans-serif;
-  font-size: 32px;
-  font-weight: 700;
-  margin: 0px;
+  color: #001329;
+  font-size: 48px;
+  font-weight: 300;
 }
 
 h4 {
-  color: #0075ff;
-  font-family: Jura, sans-serif;
+  color: #001329;
+  text-align: center;
   font-size: 24px;
-  font-weight: 500;
-  margin: 0px;
-}
-
-h5 {
-  color: #fff;
-  font-family: "Segoe UI", sans-serif;
-  font-size: 18px;
-  font-weight: 200;
-  margin: 0px;
+  font-weight: 700;
 }
 
 P {
-  color: #fff;
+  color: #001329;
   font-family: "Segoe UI", sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: normal;
-  margin: 0px;
 }
 
 a {
   text-decoration: none;
 }
 
-.logo {
-  height: 60px;
-}
-
-.brand-title {
-  color: #fff;
-  font-family: Jura, sans-serif;
-  font-size: 40px;
-  font-weight: 700;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.background-image {
-  position: absolute;
-  right: -20%;
-  width: 90%;
-  object-fit: cover;
-  z-index: 1;
-  clip-path: inset(0 20%);
-}
-
-.content-overlay {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 2;
-  position: relative;
-  text-align: left;
-}
-
 .highlight {
-  color: rgba(0, 117, 255, 1);
-}
-
-.actions {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  font-size: 20px;
-  color: #fff;
-  margin: 48px 0;
-}
-
-.corner-image {
-  border: 1px solid #fff;
-  width: 16px;
-  padding: 8px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.services-wrapper {
-  display: flex;
-  flex-direction: column;
-  font-family: Jura, sans-serif;
-  color: #fff;
-}
-
-.services-grid {
-  display: flex;
-  margin-top: 40px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0px;
-}
-
-.service-card {
-  width: 25%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.service-card-content {
-  padding: 48px 48px;
-  background-color: #121212;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 280px;
-}
-
-.service-icon {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0075ff;
-  border-radius: 4px;
-  margin-bottom: -30px;
-  z-index: 2;
-}
-
-.team-section {
-  width: 100%;
-}
-
-.team-grid {
-  display: flex;
-  margin-top: 40px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0px;
-}
-
-.team-member {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.team-image {
-  width: 100%;
-}
-
-.form-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.form-info {
-  color: #fff;
-  font-family: Jura, sans-serif;
-  width: 45%;
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 45%;
-}
-
-.newsletter-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 16px;
-}
-
-.newsletter-form {
-  display: flex;
-  align-items: center;
-  width: 60%;
-  gap: 0px;
-}
-
-.newsletter-input {
-  padding: 19px;
-  border-radius: 20px 0 0 20px;
-  background-color: white;
-  border: none;
-  width: 80%;
-}
-
-.sign-up-button {
-  padding: 16px;
-  background: #0075ff;
-  color: #fff;
-  font: 400 16px Segoe UI, sans-serif;
-  border: none;
-  border-radius: 0 20px 20px 0;
-  cursor: pointer;
-  margin-left: -5px;
-  width: 20%;
-  cursor: pointer;
-}
-
-.sign-up-button:hover {
-  background-color: #0055cc;
-}
-
-.footer-container {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0px;
-}
-
-.company-info {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-}
-
-.company-details {
-  display: flex;
-  gap: 4px;
-  flex-direction: column;
-}
-
-.back-to-top {
-  color: #fff;
-  background-color: transparent;
-  font: 400 20px Segoe UI, sans-serif;
-  border-radius: 66px;
-  padding: 8px;
-  border: 1px solid #fff;
-  width: 30%;
-  text-align: center;
-  cursor: pointer;
-}
-
-.back-to-top:hover {
-  background-color: #fff;
-  color: #000;
-}
-
-@media (max-width: 900px) {
-  .services-grid {
-    gap: 32px;
-    justify-content: center;
-  }
-
-  .service-card {
-    width: 40%;
-  }
-
-  .newsletter-form {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    width: 100%;
-  }
-
-  .newsletter-input {
-    padding: 8px;
-    border-radius: 66px;
-    background-color: white;
-    border: none;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
-  .sign-up-button {
-    padding: 8px;
-    background: #0075ff;
-    color: #fff;
-    font: 400 16px Segoe UI, sans-serif;
-    border: none;
-    border-radius: 66px;
-    cursor: pointer;
-    margin-left: 0px;
-    width: 100%;
-  }
-
-  .brand-section {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 16px;
-  }
-
-  .back-to-top {
-    color: #fff;
-    background-color: transparent;
-    font: 400 20px Segoe UI, sans-serif;
-    border-radius: 66px;
-    padding: 8px 32px;
-    border: 1px solid #fff;
-    width: 100%;
-  }
-
-  .footer-container {
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 16px;
-  }
-}
-
-@media (max-width: 780px) {
-  p {
-    font-size: 16px;
-  }
-
-  .content-overlay {
-    text-align: center;
-  }
-
-  .actions {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .service-card {
-    width: 80%;
-  }
-
-  .service-card-content {
-    height: 200px;
-  }
-
-  .form-container {
-    flex-wrap: wrap;
-    padding: 0;
-  }
-
-  .form-info {
-    width: 100%;
-    text-align: center;
-  }
-
-  .contact-form {
-    width: 100%;
-  }
-
-  .footer-container {
-    flex-wrap: wrap;
-    padding: 40px 20px;
-  }
-
-  .background-image {
-    position: absolute;
-    right: -20%;
-    width: 120%;
-    object-fit: cover;
-    z-index: 1;
-    clip-path: inset(0 20%);
-  }
-
-  .header-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: calc(100vh - 60px);
-    position: relative;
-  }
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
+  color: #0075FF;
 }
 </style>
