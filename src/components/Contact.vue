@@ -1,11 +1,10 @@
 <template>
   <section class="form-container" ref="contactSection">
-    <h2>The Future <span class="highlight">Awaits</span></h2>
+    <h2>Let's Create The Future  <span class="highlight">Together</span></h2>
     <p>
-      This is an overview of what kinds of consulting we do and what that even
-      means. Here is more description. Woohoo here is more about our team just
-      keep on reading! Oh yeah, you are still going on and on.
-    </p>
+      Got an AI idea, a question, or just curious about what we do? Reach out to ClearStack AI! Our team is here to guide, support, and share in your AI journey. Let's turn your AI dreams into reality together!
+
+  </p>
     <form class="contact-form">
       <div class="half-width">
         <input
@@ -23,7 +22,6 @@
           aria-label="Email..."
         />
       </div>
-
       <input
         type="text"
         id="budgetInput"
@@ -100,6 +98,35 @@ export default {
   z-index: 2;
 }
 
+.input {
+  padding: 12px 0;
+  border: none;
+  border-bottom: 2px solid rgba(136, 136, 136, .2);;
+  font: 16px Segoe UI, sans-serif;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-bottom-color: #0055cc;
+}
+
+.btn-primary {
+  background-color: #0075ff;
+  color: #fff;
+  font: 500 16px Segoe UI, sans-serif;
+  border-radius: 66px;
+  padding: 12px 32px;
+  border: none;
+  z-index: 2;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #0055cc;
+}
+
 .top-right-corner-image {
   position: absolute;
   top: 0;
@@ -114,4 +141,21 @@ export default {
   width: 30%;
 }
 
+.full-width {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .form-container h2,
+  .form-container p {
+    width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .form-container h2,
+  .form-container p {
+    width: 60%;
+  }
+}
 </style>
