@@ -29,6 +29,14 @@ export default {
   box-sizing: border-box;
 }
 
+.footer-container a {
+    width: fit-content;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
 .company-info {
   display: flex;
   align-items: center;
@@ -44,5 +52,12 @@ export default {
 
 .company-details h4, p {
   margin: 0px;
+}
+
+@media (max-width: 600px) {
+  .footer-container a {
+    width: 100%;
+    margin-top: 32px;
+  }
 }
 </style>

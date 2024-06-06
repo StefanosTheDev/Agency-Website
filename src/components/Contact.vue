@@ -1,10 +1,11 @@
 <template>
   <section class="form-container" ref="contactSection">
-    <h2>Let's Create The Future  <span class="highlight">Together</span></h2>
+    <h2>Let's Create The Future <span class="highlight">Together</span></h2>
     <p>
-      Got an AI idea, a question, or just curious about what we do? Reach out to ClearStack AI! Our team is here to guide, support, and share in your AI journey. Let's turn your AI dreams into reality together!
-
-  </p>
+      Got an AI idea, a question, or just curious about what we do? Reach out to
+      ClearStack AI! Our team is here to guide, support, and share in your AI
+      journey. Let's turn your AI dreams into reality together!
+    </p>
     <form class="contact-form">
       <div class="half-width">
         <input
@@ -13,6 +14,7 @@
           class="input"
           placeholder="Name..."
           aria-label="Name..."
+          required
         />
         <input
           type="email"
@@ -20,6 +22,7 @@
           class="input"
           placeholder="Email..."
           aria-label="Email..."
+          required
         />
       </div>
       <input
@@ -28,6 +31,7 @@
         class="input"
         placeholder="What is your Budget for this project?"
         aria-label="What is your Budget for this project?"
+        required
       />
       <input
         type="text"
@@ -35,6 +39,7 @@
         class="input"
         placeholder="How can we help?"
         aria-label="How can we help?"
+        required
       />
       <button type="submit" class="btn-primary full-width">Submit</button>
     </form>
@@ -81,6 +86,8 @@ export default {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-direction: row;
+  gap: 0px;
 }
 
 .half-width input {
@@ -101,7 +108,7 @@ export default {
 .input {
   padding: 12px 0;
   border: none;
-  border-bottom: 2px solid rgba(136, 136, 136, .2);;
+  border-bottom: 2px solid rgba(136, 136, 136, 0.2);
   font: 16px Segoe UI, sans-serif;
   box-sizing: border-box;
 }
@@ -145,9 +152,26 @@ export default {
   width: 100%;
 }
 
-@media (min-width: 600px) {
+@media (max-width: 600px) {
   .form-container h2,
   .form-container p {
+    width: 80%;
+  }
+
+  .half-width {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .half-width input {
+    width: 100%;
+  }
+
+  .form-container {
+    padding: 20px;
+  }
+
+  .contact-form {
     width: 80%;
   }
 }
