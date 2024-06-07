@@ -2,7 +2,9 @@
   <div class="services-container">
     <section class="services-wrapper" ref="servicesSection">
       <div class="services-words">
-        <h3>Our Services! </h3>
+        <h2>Our <span class="highlight">Services</span></h2>
+        <h3>Countless Possibilities</h3>
+        <p>At ClearStack AI, the possibilities are endless; the transformative power of artificial intelligence drives innovation and efficiency across diverse industries. Our cutting-edge solutions and custom coding empowers businesses to unlock new levels of productivity and customer engagement. By leveraging the latest advancements in AI technology, ClearStack AI turns complex challenges into opportunities for growth, ensuring our clients stay ahead in an ever-evolving digital landscape.</p>
         <div class="spacing"></div>
         <button class="btn-primary">Schedule a Call</button>        
       </div>
@@ -28,7 +30,13 @@
           <h4>ChatBot Development</h4>
           <p>Our advanced chatbot solutions go beyond simple support. We leverage knowledge bases and custom LLMs to create intelligent chatbots that address complex challenges, automate processes, and provide tailored solutions to meet your unique business needs.</p>
         </article>
-       
+        <article class="service-card">
+          <div class="service-icon">
+            <img src="../assets/icons/chatbot.svg" />
+          </div>
+          <h4>AI-Driven Software Integration</h4>
+          <p>Integrate powerful AI capabilities seamlessly into your existing systems with our AI-driven software integration services. Our solutions ensure smooth interoperability, enhanced functionality, and optimized performance.</p>
+        </article>
       </div>
     </section>
   </div>
@@ -55,24 +63,30 @@ export default {
 
 .services-wrapper {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  box-sizing: border-box;
   gap: 32px;
   padding: 64px;
   background-color: white;
   border-radius: 32px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  justify-content: space-between;
 }
 
 .services-words {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  width: 30%;
 }
 
 .services-grid {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 32px;
+  width: 60%;
+  justify-content: space-between;
 }
 
 .service-card {
@@ -83,6 +97,8 @@ export default {
   background-color: #F5F9FF;
   border-radius: 16px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  width: 32%;
+  box-sizing: border-box;
 }
 
 .service-icon {
@@ -95,42 +111,48 @@ export default {
   align-items: center;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1400px) {
   .services-wrapper {
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
   }
 
   .services-words {
-    width: 30%;
+    width: 80%;
+    text-align: center;
   }
 
   .services-grid {
-    width: 60%;
-    display: flex;
+    width: 100%;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
   }
 
   .service-card {
-    width: 48%;
+    width: 45%;
   }
 }
 
-@media (min-width: 1024px) {
-  .service-card {
-    width: 32%;
-  }
-}
-
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .services-container {
     padding: 20px;
   }
 
   .services-wrapper {
     padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .services-words,
+  .service-card {
+    width: 100%;
+  }
+
+  .services-grid {
+    flex-direction: column;
+    gap: 20px;
   }
 }
 </style>
