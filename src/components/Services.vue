@@ -28,13 +28,7 @@
           <h4>ChatBot Development</h4>
           <p>Our advanced chatbot solutions go beyond simple support. We leverage knowledge bases and custom LLMs to create intelligent chatbots that address complex challenges, automate processes, and provide tailored solutions to meet your unique business needs.</p>
         </article>
-        <article class="service-card">
-          <div class="service-icon">
-            <img src="../assets/icons/chatbot.svg" />
-          </div>
-          <h4>AI-Driven Software Integration</h4>
-          <p>Integrate AI seamlessly into your existing software with our innovative solutions. We enhance your systems' capabilities, enabling more sophisticated, automated processes that drive efficiency and innovation.</p>
-        </article>
+       
       </div>
     </section>
   </div>
