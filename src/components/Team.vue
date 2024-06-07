@@ -2,6 +2,7 @@
   <section class="team-section" ref="teamSection">
     <div class="team-words">
       <h2>Meet The <span class="highlight">Team</span></h2>
+      <p>We are one team. We have one dream. And we have a clear vision. This is ClearStack AI.</p>
     </div>
     <div class="team-grid">
       <article class="team-member">
