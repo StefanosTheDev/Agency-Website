@@ -1,5 +1,5 @@
 <template>
-  <section class="team-section" ref="teamSection">
+  <section class="team-section fadeIn" ref="teamSection">
     <div class="team-words">
       <h2>Meet The <span class="highlight">Team</span></h2>
       <p>We are one team. We have one dream. And we have a clear vision. This is ClearStack AI.</p>
@@ -34,10 +34,43 @@
 <script>
 export default {
   name: 'TeamComponent',
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.$refs.teamSection.classList.add('fadeIn-visible');
+          observer.unobserve(this.$refs.teamSection); // Stop observing once it's visible
+        }
+      });
+    }, {
+      threshold: 0.1 // Adjust as needed
+    });
+
+    observer.observe(this.$refs.teamSection);
+  }
 };
 </script>
 
 <style scoped>
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0; /* Initial hidden state */
+  transition: opacity 1s ease-in-out;
+}
+
+.fadeIn.fadeIn-visible {
+  opacity: 1; /* Visible state */
+}
+
 .team-section {
   background-color: white;
   width: 100%;

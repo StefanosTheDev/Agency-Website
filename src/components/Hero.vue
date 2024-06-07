@@ -6,12 +6,12 @@
     <h1 class="title fadeInUp">ClearStack <span style="color: black;">AI</span></h1>
     <p class="intro-text fadeInUp">Clarity In Innovation. Excellence In Execution. Impact In Results</p>
     <div class="actions fadeInScale">
-      <button class="btn-primary" @click="scrollToSection('servicesSection')">
+      <a class="btn-primary"  @click.prevent="navigateToSection('servicesSection')">
         Our Services
-      </button>
-      <button class="btn-secondary" @click="scrollToSection('contactSection')">
+      </a>
+      <a class="btn-secondary"  @click.prevent="navigateToSection('contactSection')">
         Let’s Talk
-      </button>
+      </a>
     </div>
     <img
       src="../assets/top-right-corner.svg"
@@ -30,15 +30,10 @@
 export default {
   name: 'HeaderComponent',
   methods: {
-    scrollToSection(sectionId) {
-      const section = this.$refs[sectionId];
-      if (section) {
-        const elementPosition = section.getBoundingClientRect().top + window.scrollY;
-        const offsetPosition = elementPosition - (window.innerHeight / 2) + (section.clientHeight / 2);
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+    navigateToSection(sectionId) {
+      this.$emit('navigateToSection', sectionId);
+      if (this.isMobile) {
+        this.isOpen = false;
       }
     }
   }

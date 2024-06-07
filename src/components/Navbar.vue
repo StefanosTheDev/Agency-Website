@@ -7,11 +7,11 @@
       <a href="#" @click.prevent="navigateToSection('contactSection')">Contact</a>
 
       <!-- Only include the button in the mobile nav links -->
-      <button v-if="isMobile" class="btn-tertiary mobile-btn">Schedule A Demo</button>
+      <a v-if="isMobile" class="btn-tertiary mobile-btn" @click.prevent="navigateToSection('contactSection')">Schedule A Demo</a>
     </div>
 
     <!-- Exclude the button from desktop nav links -->
-    <button v-if="!isMobile" class="btn-tertiary">Schedule A Demo</button>
+    <a v-if="!isMobile" class="btn-tertiary" @click.prevent="navigateToSection('contactSection')">Schedule A Demo</a>
     <div class="hamburger" @click="toggleMenu">
       <div class="line" :class="{ 'line1': isOpen }"></div>
       <div class="line" :class="{ 'line2': isOpen }"></div>

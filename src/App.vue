@@ -2,12 +2,12 @@
   <div class="main-wrapper">
     <header class="header-container">
       <NavbarComponent @navigateToSection="scrollToSection" />
-      <HeaderComponent />
+      <HeaderComponent @navigateToSection="scrollToSection" />
     </header>
     
     <main>
       <section ref="servicesSection">
-        <ServicesComponent />
+        <ServicesComponent  @navigateToSection="scrollToSection" />
       </section>
       <section ref="teamSection">
         <TeamComponent />

@@ -1,5 +1,5 @@
 <template>
-  <section class="form-container" ref="contactSection">
+  <section class="form-container fadeIn" ref="contactSection">
     <h2>Let's Create The Future <span class="highlight">Together</span></h2>
     <p>
       Got an AI idea, a question, or just curious about what we do? Reach out to
@@ -59,10 +59,43 @@
 <script>
 export default {
   name: "ContactComponent",
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.$refs.contactSection.classList.add('fadeIn-visible');
+          observer.unobserve(this.$refs.contactSection); // Stop observing once it's visible
+        }
+      });
+    }, {
+      threshold: 0.1 // Adjust as needed
+    });
+
+    observer.observe(this.$refs.contactSection);
+  }
 };
 </script>
 
 <style scoped>
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0; /* Initial hidden state */
+  transition: opacity 1s ease-in-out;
+}
+
+.fadeIn.fadeIn-visible {
+  opacity: 1; /* Visible state */
+}
+
 .form-container {
   background-color: #f5f9ff;
   width: 100%;

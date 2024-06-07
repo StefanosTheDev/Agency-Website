@@ -1,12 +1,12 @@
 <template>
-  <div class="services-container">
-    <section class="services-wrapper" ref="servicesSection">
+  <div class="services-container fadeIn" ref="servicesSection">
+    <section class="services-wrapper">
       <div class="services-words">
         <h2>Our <span class="highlight">Services</span></h2>
         <h3>Countless Possibilities</h3>
         <p>At ClearStack AI, the possibilities are endless; the transformative power of artificial intelligence drives innovation and efficiency across diverse industries. Our cutting-edge solutions and custom coding empowers businesses to unlock new levels of productivity and customer engagement. By leveraging the latest advancements in AI technology, ClearStack AI turns complex challenges into opportunities for growth, ensuring our clients stay ahead in an ever-evolving digital landscape.</p>
         <div class="spacing"></div>
-        <button class="btn-primary">Schedule a Call</button>        
+        <button class="btn-primary" @click.prevent="navigateToSection('contactSection')">Schedule a Call</button>        
       </div>
       <div class="services-grid">
         <article class="service-card">
@@ -45,10 +45,50 @@
 <script>
 export default {
   name: 'ServicesComponent',
+  methods: {
+  navigateToSection(sectionId) {
+      this.$emit('navigateToSection', sectionId);
+      if (this.isMobile) {
+        this.isOpen = false;
+      }
+    }
+  },
+  mounted() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.$refs.servicesSection.classList.add('fadeIn-visible');
+          observer.unobserve(this.$refs.servicesSection); // Stop observing once it's visible
+        }
+      });
+    }, {
+      threshold: 0.1 // Adjust as needed
+    });
+
+    observer.observe(this.$refs.servicesSection);
+  }
 };
 </script>
 
 <style scoped>
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  opacity: 0; /* Initial hidden state */
+  transition: opacity 1s ease-in-out;
+}
+
+.fadeIn.fadeIn-visible {
+  opacity: 1; /* Visible state */
+}
 
 .spacing {
   height: 32px;
