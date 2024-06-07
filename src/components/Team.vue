@@ -2,7 +2,6 @@
   <section class="team-section" ref="teamSection">
     <div class="team-words">
       <h2>Meet The <span class="highlight">Team</span></h2>
-      <p>Small introduction paragraph here about the company’s services and what we provide people with. Small introduction paragraph here about the company’s services.</p>
     </div>
     <div class="team-grid">
       <article class="team-member">

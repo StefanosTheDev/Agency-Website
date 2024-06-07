@@ -1,9 +1,10 @@
 <template>
   <section class="header-content">
     <h1 class="title">
-      ClearStack AI<br />
+      Innovation Simplified With<br />
     </h1>
-    <p class="intro-text">A small introductory paragraph about what we do.</p>
+    <h1>ClearStack <span style="color: black;">AI</span></h1>
+    <p class="intro-text">Clarity In Innovation, Excellence In Execution, Impact In Results</p>
     <div class="actions">
       <button class="btn-primary" @click="scrollToSection('servicesSection')">
         Our Services

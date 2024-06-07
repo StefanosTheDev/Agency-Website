@@ -2,9 +2,7 @@
   <div class="services-container">
     <section class="services-wrapper" ref="servicesSection">
       <div class="services-words">
-        <h2>Our <span class="highlight">Services</span></h2>
-        <h3>We Provide Many Awesome Services</h3>
-        <p>Small introduction paragraph here about the company’s services and what we provide people with. Small introduction paragraph here about the company’s services and what we provide people with. Small introduction paragraph here about the company’s services and what we provide people with. Small introduction paragraph here about the company’s services and what we provide people with.</p>
+        <h3>Our Services! </h3>
         <div class="spacing"></div>
         <button class="btn-primary">Schedule a Call</button>        
       </div>
@@ -13,29 +11,29 @@
           <div class="service-icon">
             <img src="../assets/icons/consulting.svg" />
           </div>
-          <h4>Consulting</h4>
-          <p>This is an overview of what kinds of consulting we do and what that even means. Here is more description.</p>
+          <h4>Enterprise Consulting</h4>
+          <p>Our expert consultants guide your enterprise in harnessing the power of AI. We provide tailored strategies that drive innovation, enhance competitiveness, and foster sustainable growth.</p>
         </article>
         <article class="service-card">
           <div class="service-icon">
             <img src="../assets/icons/optimization.svg" />
           </div>
           <h4>Automated Process Optimization</h4>
-          <p>This is an overview of what kinds of processes we optimize and what that even means. Here is more description.</p>
+          <p>Streamline operations and boost efficiency with our cutting-edge automation solutions. We combine advanced tools and custom code to transform tedious tasks into seamless, automated processes, saving time and resources..</p>
         </article>
         <article class="service-card">
           <div class="service-icon">
             <img src="../assets/icons/chatbot.svg" />
           </div>
           <h4>ChatBot Development</h4>
-          <p>This is an overview of what kinds of chatbot dev we do and what that even means. Here is more description.</p>
+          <p>Our advanced chatbot solutions go beyond simple support. We leverage knowledge bases and custom LLMs to create intelligent chatbots that address complex challenges, automate processes, and provide tailored solutions to meet your unique business needs.</p>
         </article>
         <article class="service-card">
           <div class="service-icon">
             <img src="../assets/icons/chatbot.svg" />
           </div>
-          <h4>ChatBot Development</h4>
-          <p>This is an overview of what kinds of chatbot dev we do and what that even means. Here is more description.</p>
+          <h4>AI-Driven Software Integration</h4>
+          <p>Integrate AI seamlessly into your existing software with our innovative solutions. We enhance your systems' capabilities, enabling more sophisticated, automated processes that drive efficiency and innovation.</p>
         </article>
       </div>
     </section>
