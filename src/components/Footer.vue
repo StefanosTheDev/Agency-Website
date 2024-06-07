@@ -1,5 +1,5 @@
 <template>
-    <footer class="footer-container">
+    <footer class="footer-container" ref="footerSection">
       <div class="company-info">
         <img src="../assets/secondary_logo.svg" alt="Logo" class="logo" />
         <div class="company-details">
@@ -7,13 +7,21 @@
           <p>Copyright ©2024 - All Rights Reserved</p>
         </div>
       </div>
-      <a href="#" class="btn-tertiary" @click="">Back To Top</a>
+      <a href="#" class="btn-tertiary" @click.prevent="navigateToSection('navbarSection')">Back To Top</a>
     </footer>
 </template>
 
 <script>
 export default {
   name: 'FooterComponent',
+  methods: {
+    navigateToSection(sectionId) {
+      this.$emit('navigateToSection', sectionId);
+      if (this.isMobile) {
+        this.isOpen = false;
+      }
+    }
+  }
 };
 </script>
 

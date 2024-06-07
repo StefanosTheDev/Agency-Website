@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" ref="navbarSection">
     <img src="../assets/logo.svg" alt="ClearStack AI" class="logo" />
     <div class="nav-links" :class="{ 'nav-links-mobile': isMobile, 'nav-links-open': isMobile && isOpen }">
       <a href="#" @click.prevent="navigateToSection('servicesSection')">Services</a>

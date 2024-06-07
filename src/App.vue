@@ -1,7 +1,9 @@
 <template>
   <div class="main-wrapper">
     <header class="header-container">
-      <NavbarComponent @navigateToSection="scrollToSection" />
+      <section ref="navbarSection">
+        <NavbarComponent @navigateToSection="scrollToSection" />
+      </section>
       <HeaderComponent @navigateToSection="scrollToSection" />
     </header>
     
@@ -16,7 +18,7 @@
         <ContactComponent />
       </section>
     </main>
-    <FooterComponent />
+    <FooterComponent @navigateToSection="scrollToSection" />
   </div>
 </template>
 
