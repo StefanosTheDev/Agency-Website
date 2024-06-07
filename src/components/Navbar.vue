@@ -2,9 +2,9 @@
   <nav class="navbar">
     <img src="../assets/logo.svg" alt="ClearStack AI" class="logo" />
     <div class="nav-links" :class="{ 'nav-links-mobile': isMobile, 'nav-links-open': isMobile && isOpen }">
-      <a href="#">Services</a>
-      <a href="#">Our Team</a>
-      <a href="#">Contact</a>
+      <a href="#" @click.prevent="navigateToSection('servicesSection')">Services</a>
+      <a href="#" @click.prevent="navigateToSection('teamSection')">Our Team</a>
+      <a href="#" @click.prevent="navigateToSection('contactSection')">Contact</a>
 
       <!-- Only include the button in the mobile nav links -->
       <button v-if="isMobile" class="btn-tertiary mobile-btn">Schedule A Demo</button>
@@ -37,6 +37,12 @@ export default {
     updateIsMobile() {
       this.isMobile = window.innerWidth <= 768;
       if (!this.isMobile) {
+        this.isOpen = false;
+      }
+    },
+    navigateToSection(sectionId) {
+      this.$emit('navigateToSection', sectionId);
+      if (this.isMobile) {
         this.isOpen = false;
       }
     }

@@ -1,14 +1,20 @@
 <template>
   <div class="main-wrapper">
     <header class="header-container">
-      <NavbarComponent />
+      <NavbarComponent @navigateToSection="scrollToSection" />
       <HeaderComponent />
     </header>
     
     <main>
-      <ServicesComponent />
-      <TeamComponent />
-      <ContactComponent />
+      <section ref="servicesSection">
+        <ServicesComponent />
+      </section>
+      <section ref="teamSection">
+        <TeamComponent />
+      </section>
+      <section ref="contactSection">
+        <ContactComponent />
+      </section>
     </main>
     <FooterComponent />
   </div>
@@ -33,11 +39,19 @@ export default defineComponent({
     FooterComponent,
     NavbarComponent
   },
+  methods: {
+    scrollToSection(sectionId) {
+      const section = this.$refs[sectionId];
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }
 });
 </script>
 
-<style>
 
+<style>
 body,
 html {
   margin: 0px;

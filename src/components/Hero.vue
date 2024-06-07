@@ -4,7 +4,7 @@
       Innovation Simplified With<br />
     </h1>
     <h1>ClearStack <span style="color: black;">AI</span></h1>
-    <p class="intro-text">Clarity In Innovation, Excellence In Execution, Impact In Results</p>
+    <p class="intro-text">Clarity In Innovation. Excellence In Execution Impact In Results</p>
     <div class="actions">
       <button class="btn-primary" @click="scrollToSection('servicesSection')">
         Our Services
