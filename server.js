@@ -52,7 +52,7 @@ app.post('/send-email', async (req, res) => {
     await transporter.sendMail({
       from: '"ClearStack AI Team" <contact@clearstack.ai>',
       to: "contact@clearstack.ai, collin@clearstack.ai, stefanos@clearstack.ai, justice@clearstack.ai, stavro@clearstack.ai", // list of receivers
-      subject: "New Contact Form Submission", // Subject line
+      subject: `New Contact Form Submission from ${name}`, // Subject line
       text: `Name: ${name}\nEmail: ${email}\nBudget: ${budget}\nHelp: ${help}`, // plain text body
       html: htmlContent, // html body
     });
