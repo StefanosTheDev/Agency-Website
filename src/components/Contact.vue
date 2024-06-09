@@ -6,59 +6,133 @@
       ClearStack AI! Our team is here to guide, support, and share in your AI
       journey. Let's turn your AI dreams into reality together!
     </p>
-    <form class="contact-form">
+    <form class="contact-form" ref="contactForm">
       <div class="half-width">
         <input
-          type="text"
-          id="nameInput"
-          class="input"
-          placeholder="Name..."
-          aria-label="Name..."
-          required
+            v-model="form.name"
+            type="text"
+            id="nameInput"
+            class="input"
+            placeholder="Name..."
+            aria-label="Name..."
+            required
         />
         <input
-          type="email"
-          id="emailInput"
-          class="input"
-          placeholder="Email..."
-          aria-label="Email..."
-          required
+            v-model="form.email"
+            type="email"
+            id="emailInput"
+            class="input"
+            placeholder="Email..."
+            aria-label="Email..."
+            required
         />
       </div>
       <input
-        type="text"
-        id="budgetInput"
-        class="input"
-        placeholder="What is your Budget for this project?"
-        aria-label="What is your Budget for this project?"
-        required
+          v-model="form.budget"
+          type="text"
+          id="budgetInput"
+          class="input"
+          placeholder="What is your Budget for this project?"
+          aria-label="What is your Budget for this project?"
+          required
       />
       <input
-        type="text"
-        id="helpInput"
-        class="input"
-        placeholder="How can we help?"
-        aria-label="How can we help?"
-        required
+          v-model="form.help"
+          type="text"
+          id="helpInput"
+          class="input"
+          placeholder="How can we help?"
+          aria-label="How can we help?"
+          required
       />
-      <button type="submit" class="btn-primary full-width">Submit</button>
+      <button type="submit" class="btn-primary full-width" @click.prevent="handleSubmit" :disabled="loading">
+        <span v-if="loading" class="spinner"></span>
+        <span v-else>Submit</span>
+      </button>
     </form>
     <img
-      src="../assets/top-right-corner.svg"
-      alt="Top Right Corner"
-      class="top-right-corner-image"
+        src="../assets/top-right-corner.svg"
+        alt="Top Right Corner"
+        class="top-right-corner-image"
     />
     <img
-      src="../assets/bottom-left-corner.svg"
-      alt="Bottom Left Corner"
-      class="bottom-left-corner-image"
+        src="../assets/bottom-left-corner.svg"
+        alt="Bottom Left Corner"
+        class="bottom-left-corner-image"
     />
   </section>
 </template>
 
 <script>
+import Swal from 'sweetalert2';
+
 export default {
   name: "ContactComponent",
+  data() {
+    return {
+      form: {
+        name: '',
+        email: '',
+        budget: '',
+        help: ''
+      },
+      loading: false
+    };
+  },
+  methods: {
+    async handleSubmit() {
+      const { name, email, budget, help } = this.form;
+
+      console.log('Form submitted with:', { name, email, budget, help });
+
+      // Determine the API URL based on the environment
+      const apiUrl = window.location.hostname === 'localhost'
+          ? 'http://localhost:5001/send-email'
+          : '/send-email';
+
+      // Send form data to the server
+      this.loading = true;
+      try {
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, budget, help })
+        });
+
+        const data = await response.json();
+        console.log(data.message);
+
+        // Clear the form fields
+        this.form.name = '';
+        this.form.email = '';
+        this.form.budget = '';
+        this.form.help = '';
+
+        // Display a success dialog
+        await Swal.fire({
+          title: 'Success!',
+          text: 'Your information has been sent successfully.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        });
+
+      } catch (error) {
+        console.error('Error sending email:', error);
+
+        // Display an error dialog
+        await Swal.fire({
+          title: 'Error!',
+          text: 'There was an error sending your information. Please try again later.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+      } finally {
+        this.loading = false;
+      }
+    }
+  },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -76,8 +150,8 @@ export default {
 };
 </script>
 
-<style scoped>
 
+<style scoped>
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -161,10 +235,27 @@ export default {
   z-index: 2;
   cursor: pointer;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-primary:hover {
   background-color: #0055cc;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #fff;
+  width: 20px;
+  height: 20px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .top-right-corner-image {
