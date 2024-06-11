@@ -1,15 +1,24 @@
-import express from 'express';
-import path from 'path';
-import { fileURLToPath } from 'url';
-import serveStatic from 'serve-static';
-import bodyParser from 'body-parser';
-import nodemailer from 'nodemailer';
-import cors from 'cors';
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import serveStatic from "serve-static";
+import bodyParser from "body-parser";
+import nodemailer from "nodemailer";
+import cors from "cors";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
+
+// Middleware to redirect HTTP to HTTPS
+app.use((req, res, next) => {
+  if (req.header("x-forwarded-proto") !== "https") {
+    res.redirect(`https://${req.header("host")}${req.url}`);
+  } else {
+    next();
+  }
+});
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
@@ -18,10 +27,10 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Serve static files from the 'dist' directory
-app.use(serveStatic(path.join(__dirname, 'dist')));
+app.use(serveStatic(path.join(__dirname, "dist")));
 
 // Route to handle form submission
-app.post('/send-email', async (req, res) => {
+app.post("/send-email", async (req, res) => {
   const { name, email, budget, help } = req.body;
 
   let transporter = nodemailer.createTransport({
@@ -58,14 +67,14 @@ app.post('/send-email', async (req, res) => {
     });
     res.status(200).send({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error('Error sending email:', error);
+    console.error("Error sending email:", error);
     res.status(500).send({ error: "Error sending email" });
   }
 });
 
 // Catch-all route to serve 'index.html'
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 const port = process.env.PORT || 5001;
