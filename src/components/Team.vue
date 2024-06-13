@@ -2,11 +2,11 @@
   <section class="team-section fadeIn" ref="teamSection">
     <div class="team-words">
       <h2>Meet The <span class="highlight">Team</span></h2>
-      <p>Meet Stefanos and Stavro Sophocleous, the dynamic brothers behind ClearStack AI! With Stefanos driving passionate AI automation workflows and Stavro ensuring top-notch operations and marketing, they bring a full solution of engineering and customer service to drive positive change in organizations.</p>
+      <p>Meet Stefanos and Stavro Sophocleous, the dynamic brothers behind ClearStack AI! With Stefanos driving passionate AI automation and Stavro ensuring top-notch operations and marketing, they bring a full solution of engineering and customer service to drive positive change in organizations.</p>
     </div>
     <div class="team-grid">
       <article class="team-member">
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e484c42703f5e4c2e114fa79be4404eebee385b79d1462f44eedbcb5be86d1?apiKey=0b31aaea2fd84e958e6f2fd0d92347c4&"
+        <img src="../assets/Stefanos1.png"
           class="team-image"
           alt="Tiara Knightley"
         />
@@ -17,7 +17,7 @@
         </div>
       </article>
       <article class="team-member">
-        <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/c9e484c42703f5e4c2e114fa79be4404eebee385b79d1462f44eedbcb5be86d1?apiKey=0b31aaea2fd84e958e6f2fd0d92347c4&"
+        <img src="../assets/Stavro.png"
           class="team-image"
           alt="Tiara Knightley"
         />
@@ -108,7 +108,7 @@ export default {
 
 .team-image {
   width: 160px;
-  height: 160px;
+  height: 200p;
   border-radius: 8px;
 }
 
@@ -216,6 +216,12 @@ export default {
     align-items: center;
     text-align: center;
     width: 100%;
+  }
+
+  .team-image {
+    width: 140px; 
+    height: 160px; 
+    border-radius: 50%;
   }
 }
 </style>

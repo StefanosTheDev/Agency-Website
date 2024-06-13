@@ -14,28 +14,28 @@
             <img src="../assets/icons/consulting.svg" />
           </div>
           <h4>Enterprise Consulting</h4>
-          <p>Our expert consultants guide your enterprise in harnessing the power of AI. We provide tailored strategies that drive innovation, enhance competitiveness, and foster sustainable growth.</p>
+          <p>Our expert consultants provide tailored AI strategies to drive innovation, enhance competitiveness, and foster sustainable growth for your enterprise.</p>
         </article>
         <article class="service-card">
           <div class="service-icon">
             <img src="../assets/icons/optimization.svg" />
           </div>
           <h4>Automated Process Optimization</h4>
-          <p>Streamline operations and boost efficiency with our cutting-edge automation solutions. We combine advanced tools and custom code to transform tedious tasks into seamless, automated processes, saving time and resources..</p>
+          <p>Streamline operations with our advanced automation solutions, transforming tedious tasks into seamless, automated processes, saving time and resources.</p>
         </article>
         <article class="service-card">
           <div class="service-icon">
             <img src="../assets/icons/chatbot.svg" />
           </div>
           <h4>ChatBot Development</h4>
-          <p>Our advanced chatbot solutions go beyond simple support. We leverage knowledge bases and custom LLMs to create intelligent chatbots that address complex challenges, automate processes, and provide tailored solutions to meet your unique business needs.</p>
+          <p>Our intelligent chatbots leverage knowledge bases and custom LLMs to automate processes and address complex business challenges.</p>
         </article>
         <article class="service-card">
           <div class="service-icon">
             <img src="../assets/icons/chatbot.svg" />
           </div>
           <h4>AI-Driven Software Integration</h4>
-          <p>Integrate powerful AI capabilities seamlessly into your existing systems with our AI-driven software integration services. Our solutions ensure smooth interoperability, enhanced functionality, and optimized performance.</p>
+          <p>Seamlessly integrate AI capabilities into your systems with our services, ensuring enhanced functionality, interoperability, and optimized performance.</p>
         </article>
       </div>
     </section>
