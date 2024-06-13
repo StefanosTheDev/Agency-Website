@@ -157,7 +157,7 @@ export default {
         }
       });
     }, {
-      threshold: 0.1 // Adjust as needed
+      threshold: 0.1 // Adjust as neededa
     });
 
     observer.observe(this.$refs.contactSection);
