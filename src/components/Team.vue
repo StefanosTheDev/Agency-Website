@@ -2,7 +2,7 @@
   <section class="team-section fadeIn" ref="teamSection">
     <div class="team-words">
       <h2>Meet The <span class="highlight">Team</span></h2>
-      <p>We are one team. We have one dream. And we have a clear vision. This is ClearStack AI.</p>
+      <p>Meet Stefanos and Stavro Sophocleous, the dynamic brothers behind ClearStack AI! With Stefanos driving passionate AI automation workflows and Stavro ensuring top-notch operations and marketing, they bring a full solution of engineering and customer service to drive positive change in organizations.</p>
     </div>
     <div class="team-grid">
       <article class="team-member">
@@ -13,7 +13,7 @@
         <div class="member-content">
           <h2>Stefanos Sophocleous</h2>
           <div class="divider"></div>
-          <h5 class="member-title">Chief Executive Officer</h5>
+          <h5 class="member-title">Co-Founder</h5>
         </div>
       </article>
       <article class="team-member">
@@ -24,7 +24,7 @@
         <div class="member-content">
           <h2>Stavro Sophocleous</h2>
           <div class="divider"></div>
-          <h5 class="member-title">Chief Operating Officer</h5>
+          <h5 class="member-title">Co-Founder</h5>
         </div>
       </article>
     </div>
