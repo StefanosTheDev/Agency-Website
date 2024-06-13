@@ -6,10 +6,10 @@
       ClearStack AI! Our team is here to guide, support, and share in your AI
       journey. Let's turn your AI dreams into reality together!
     </p>
-    <form class="contact-form" ref="contactForm">
+    <form class="contact-form" ref="contactForm" @submit.prevent="handleSubmit">
       <div class="half-width">
         <input
-            v-model="form.name"
+            v-model.trim="form.name"
             type="text"
             id="nameInput"
             class="input"
@@ -18,7 +18,7 @@
             required
         />
         <input
-            v-model="form.email"
+            v-model.trim="form.email"
             type="email"
             id="emailInput"
             class="input"
@@ -28,7 +28,7 @@
         />
       </div>
       <input
-          v-model="form.budget"
+          v-model.trim="form.budget"
           type="text"
           id="budgetInput"
           class="input"
@@ -37,7 +37,7 @@
           required
       />
       <input
-          v-model="form.help"
+          v-model.trim="form.help"
           type="text"
           id="helpInput"
           class="input"
@@ -45,7 +45,7 @@
           aria-label="How can we help?"
           required
       />
-      <button type="submit" class="btn-primary full-width" @click.prevent="handleSubmit" :disabled="loading">
+      <button type="submit" class="btn-primary full-width" :disabled="loading || !isValidForm">
         <span v-if="loading" class="spinner"></span>
         <span v-else>Submit</span>
       </button>
@@ -79,11 +79,26 @@ export default {
       loading: false
     };
   },
+  computed: {
+    isValidForm() {
+      return this.form.name && this.form.email && this.form.budget && this.form.help;
+    }
+  },
   methods: {
+    sanitizeInput(input) {
+      const temp = document.createElement('div');
+      temp.textContent = input;
+      return temp.innerHTML;
+    },
     async handleSubmit() {
-      const { name, email, budget, help } = this.form;
+      const sanitizedForm = {
+        name: this.sanitizeInput(this.form.name),
+        email: this.sanitizeInput(this.form.email),
+        budget: this.sanitizeInput(this.form.budget),
+        help: this.sanitizeInput(this.form.help),
+      };
 
-      console.log('Form submitted with:', { name, email, budget, help });
+      console.log('Form submitted with:', sanitizedForm);
 
       // Determine the API URL based on the environment
       const apiUrl = window.location.hostname === 'localhost'
@@ -98,7 +113,7 @@ export default {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ name, email, budget, help })
+          body: JSON.stringify(sanitizedForm)
         });
 
         const data = await response.json();
@@ -149,7 +164,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped>
 @keyframes fadeIn {
