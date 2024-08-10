@@ -6,35 +6,18 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const testimonialsData = [
+  
     {
-        testimonial: "ClearStackAI's solutions have revolutionized our customer service operations. Response times are faster, and customer satisfaction is higher than ever.",
-        name: "Derek Johnson",
-        title: "Customer Service Manager",
-        avatar: "https://robohash.org/molestiaevoluptatibusea.png?size=50x50&set=set1"
+        testimonial: "ClearStackAI has been a game-changer for our business. Their expertise in NLU and dedication to understanding our business allows us to feel confident in our technology partner moving forward.",
+        name: "Romeo Piro",
+        title: "Co-Founder",
+        avatar: "/Ramson.png"
     },
     {
-        testimonial: "The automation processes implemented by ClearStackAI have saved us countless hours. Our efficiency has skyrocketed, allowing us to focus on innovation.",
-        name: "Jane Smith",
-        title: "Operations Manager",
-        avatar: "https://robohash.org/eosillumadipisci.png?size=50x50&set=set1"
-    },
-    {
-        testimonial: "ClearStackAI provided us with exceptional AI solutions for our complex problems. Their expertise and support have been invaluable.",
-        name: "Michael Brown",
-        title: "Chief Technology Officer",
-        avatar: "https://robohash.org/quiaquorerum.png?size=50x50&set=set1"
-    },
-    {
-        testimonial: "With ClearStackAI's AI-driven insights, we've been able to make more informed decisions, leading to better outcomes for our projects.",
-        name: "Emily Davis",
-        title: "Project Manager",
-        avatar: "https://robohash.org/similiquefacilisdeleniti.png?size=50x50&set=set1"
-    },
-    {
-        testimonial: "The integration of ClearStackAI's solutions has streamlined our workflows and improved our overall productivity. Highly recommend their services!",
-        name: "John Miller",
-        title: "Senior Developer",
-        avatar: "https://robohash.org/asperioresvelit.png?size=50x50&set=set1"
+        testimonial: "Stefanos creative analysis and workflow optimization saved our Behavioral Health Company over 17 hours a week for our administrative staff. His consulting work was a game-changer, and we truly valued his expertise and dedication.",
+        name: "Vartan Hekimian",
+        title: "CEO",
+        avatar: "/AMVA.png"
     }
 ];
 
@@ -81,9 +64,7 @@ export default function Testimonials() {
                             What Our Customers <span className="gradient-text-2 pr-4 font-medium">Say</span>
                         </h2>
                         <p className="text-base text-gray-600 text-center md:text-left">
-                            This advantage emphasizes how chat AI can provide faster and more accurate responses to user
-                            inquiries.
-                        </p>
+                        Discover how other businesses are transforming with ClearStackAI   </p>
                     </motion.div>
 
                     <motion.div

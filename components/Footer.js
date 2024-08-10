@@ -36,12 +36,12 @@ export default function Footer() {
                 {!isMobile && (
                     <div>
                         <p className="text-3xl">ClearStackAI</p>
-                        <p className="text-lg text-muted">ClearStackAI, AN AI AUTOMATION COMPANY</p>
+                        <p className="text-lg text-muted">We Build Next Generation B2B AI Solutions</p>
                     </div>
                 )}
                 <div className="flex flex-col md:flex-row justify-between items-center w-full space-y-2 md:space-y-0 md:space-x-4">
-                    <a href="www.google.com" className="hover:underline text-sm md:text-xl">Terms of Service</a>
-                    <a href="#" className="hover:underline text-sm md:text-xl md:ml-4">Privacy Policy</a>
+                    <a> Terms of Service</a>
+                    <a> Privacy Policy</a>
                     {!isMobile && (
                         <Button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} variant={'outlined'}>Back To Top</Button>
                     )}

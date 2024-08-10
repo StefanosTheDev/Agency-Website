@@ -20,25 +20,16 @@ export default function Services() {
 
     const services = [
         {
-            title: 'AI Assistants',
-            description: 'Revolutionize your business with AI Assistants providing 24/7 Customer Support and more.',
-            imgSrc: '/assistants.svg',
+            title: 'AI Chatbots',
+            description: 'Our AI agents are highly customizable and can integrate seamlessly with any platform that has a conenction gateway. With extremely fast turn around times. Our agents can be built with OpenAI, Claude and Gemini and more!',
+            imgSrc: '/Chat1.png',
         },
         {
-            title: 'Automated Process Optimization',
-            description: 'Enhance efficiency with automated processes tailored to your business needs.',
+            title: 'Custom Workflow Automations',
+            description: 'Have a custom CRM or static processes slowing you down? Our experts will analyze your workflow and implement custom software solutions infused with automation to eliminate bottlenecks and boost efficiency.',
             imgSrc: '/automation.svg',
         },
-        {
-            title: 'Enterprise Consulting',
-            description: 'Get expert advice and strategies to elevate your business operations.',
-            imgSrc: '/enterprise.svg',
-        },
-        {
-            title: 'AI Driven Software Development',
-            description: 'Leverage AI for innovative and effective software solutions.',
-            imgSrc: '/software.svg',
-        },
+       
     ];
 
     // Create arrays of hooks
