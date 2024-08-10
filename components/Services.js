@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image';
 import ClientButton from "@/components/Button";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -11,17 +11,11 @@ const serviceVariants = {
 };
 
 export default function Services() {
-    // const [navbarHeight, setNavbarHeight] = useState(0);
-    //
-    // useEffect(() => {
-    //     const height = document.getElementById('nav-bar').offsetHeight;
-    //     setNavbarHeight(height);
-    // }, []);
 
     const services = [
         {
             title: 'AI Chatbots',
-            description: 'Our AI agents are highly customizable and can integrate seamlessly with any platform that has a conenction gateway. With extremely fast turn around times. Our agents can be built with OpenAI, Claude and Gemini and more!',
+            description: 'Our AI agents are highly customizable and can integrate seamlessly with any platform that has a connection gateway. With extremely fast turnaround times. Our agents can be built with OpenAI, Claude, Gemini, and more!',
             imgSrc: '/Chat1.png',
         },
         {
@@ -29,13 +23,10 @@ export default function Services() {
             description: 'Have a custom CRM or static processes slowing you down? Our experts will analyze your workflow and implement custom software solutions infused with automation to eliminate bottlenecks and boost efficiency.',
             imgSrc: '/automation.svg',
         },
-       
     ];
 
     // Create arrays of hooks
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const controlsArray = services.map(() => useAnimation());
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const inViewRefsArray = services.map(() => useInView({ triggerOnce: true, threshold: 0.1 }));
 
     useEffect(() => {
@@ -45,6 +36,15 @@ export default function Services() {
             }
         });
     }, [controlsArray, inViewRefsArray]);
+
+    // Scroll handlers
+    const handleScrollConsultation = () => {
+        document.getElementById('consultation').scrollIntoView({ behavior: 'smooth' });
+    };
+
+    const handleScrollContactUs = () => {
+        document.getElementById('contact-us').scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
         <section id="next-section" className="py-20 bg-background relative flex flex-col items-center justify-center">
@@ -68,7 +68,7 @@ export default function Services() {
                                 initial="hidden"
                                 animate={controlsArray[index]}
                                 variants={serviceVariants}
-                                transition={{duration: 1.5, delay: index * 0.3}}
+                                transition={{ duration: 1.5, delay: index * 0.3 }}
                             >
                                 <div className="w-full h-48 sm:h-64 lg:h-80 relative">
                                     <Image
@@ -84,8 +84,9 @@ export default function Services() {
                                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{service.title}</h3>
                                     <p className="text-sm md:text-base lg:text-lg text-gray-700 mb-6">{service.description}</p>
                                     <div className="mt-auto">
-                                        <ClientButton variant="filled" onClick={() => {
-                                        }}>Get Started</ClientButton>
+                                        <ClientButton variant="filled" onClick={handleScrollConsultation}>Get Started</ClientButton>
+                                        {/* Example of adding a second button */}
+                                        {/* <ClientButton variant="outlined" onClick={handleScrollContactUs}>Learn More</ClientButton> */}
                                     </div>
                                 </div>
                             </motion.div>
