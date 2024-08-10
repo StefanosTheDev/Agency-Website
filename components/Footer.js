@@ -1,4 +1,3 @@
-// components/Footer.js
 'use client'
 import Image from 'next/image';
 import Button from "@/components/Button";
@@ -20,8 +19,16 @@ export default function Footer() {
         };
     }, []);
 
+    const handleBackToTop = () => {
+        console.log("Back To Top clicked"); // Debugging log
+        const heroSection = document.getElementById('hero-section');
+        if (heroSection) {
+            heroSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
-        <footer className="relative w-full flex flex-col items-center justify-between text-center bg-gradient-to-r from-blue-800 to-purple-800 text-white overflow-hidden min-h-[100px] md:min-h-[200px]">
+        <footer className="relative w-full flex flex-col items-center justify-between text-center bg-gradient-to-r from-blue-800 to-purple-800 text-white overflow-hidden min-h-[100px] md:min-h-[200px] z-50">
             <div className="absolute inset-0">
                 <Image
                     src="/footer.svg"
@@ -40,11 +47,15 @@ export default function Footer() {
                     </div>
                 )}
                 <div className="flex flex-col md:flex-row justify-between items-center w-full space-y-2 md:space-y-0 md:space-x-4">
-                    <a> Terms of Service</a>
-                    <a> Privacy Policy</a>
                     {!isMobile && (
-                        <Button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} variant={'outlined'}>Back To Top</Button>
+                        <>
+                            <a>Terms of Service</a>
+                            <a>Privacy Policy</a>
+                        </>
                     )}
+                    <Button onClick={handleBackToTop} variant={'outlined'}>
+                        Back To Top
+                    </Button>
                 </div>
             </div>
         </footer>
