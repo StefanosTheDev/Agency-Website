@@ -63,3 +63,48 @@ a {
 .footer-links a:hover {
   color: #00a2ff; /* Adjust the hover color as needed */
 }
+
+/* Custom Styles for the Testimonials Heading */
+.testimonial-heading {
+  margin-bottom: 1.5rem;
+  position: relative;
+  max-width: max-content;
+  padding: 0.5rem 1rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #DBDCDF;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  color: black;
+  user-select: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .testimonial-heading {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 769px) {
+  .testimonial-heading {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 768px) {
+    .mobile-zoom {
+        object-fit: cover;
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .w-full.h-48.sm:h-64.lg:h-80.relative {
+        height: 56vh;
+    }
+}

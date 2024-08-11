@@ -590,9 +590,6 @@ video {
 .hidden {
   display: none;
 }
-.h-12 {
-  height: 3rem;
-}
 .h-48 {
   height: 12rem;
 }
@@ -613,9 +610,6 @@ video {
 }
 .min-h-screen {
   min-height: 100vh;
-}
-.w-12 {
-  width: 3rem;
 }
 .w-6 {
   width: 1.5rem;
@@ -1005,12 +999,55 @@ a {
   color: #00a2ff; /* Adjust the hover color as needed */
 }
 
+/* Custom Styles for the Testimonials Heading */
+.testimonial-heading {
+  margin-bottom: 1.5rem;
+  position: relative;
+  max-width: max-content;
+  padding: 0.5rem 1rem;
+  font-family: 'Arial', sans-serif;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: #DBDCDF;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  color: black;
+  user-select: none;
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .testimonial-heading {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+/* Desktop-specific styles */
+@media (min-width: 769px) {
+  .testimonial-heading {
+    margin-left: 0;
+    text-align: left;
+  }
+}
+@media only screen and (max-width: 768px) {
+    .mobile-zoom {
+        object-fit: cover;
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .w-full.h-48.sm:h-64.lg:h-80.relative {
+        height: 56vh;
+    }
+}
 .hover\:shadow-lg:hover {
   --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-
 @media (min-width: 640px) {
   .sm\:h-64 {
     height: 16rem;
@@ -1044,7 +1081,6 @@ a {
     line-height: 1.75rem;
   }
 }
-
 @media (min-width: 768px) {
   .md\:inline {
     display: inline;
@@ -1116,7 +1152,6 @@ a {
     line-height: 1.5rem;
   }
 }
-
 @media (min-width: 1024px) {
   .lg\:h-80 {
     height: 20rem;

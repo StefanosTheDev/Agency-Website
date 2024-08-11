@@ -16,7 +16,7 @@ export default function Services() {
         {
             title: 'AI Chatbots',
             description: 'Our AI agents are highly customizable and can integrate seamlessly with any platform that has a connection gateway. With extremely fast turnaround times. Our agents can be built with OpenAI, Claude, Gemini, and more!',
-            imgSrc: '/Chat1.png',
+            imgSrc: '/NewPhoto1.png',
         },
         {
             title: 'Custom Workflow Automations',
@@ -76,7 +76,7 @@ export default function Services() {
                                         alt={service.title}
                                         layout="fill"
                                         objectFit="contain"
-                                        className="rounded-t-lg"
+                                        className={`rounded-t-lg ${service.title === 'AI Chatbots' ? 'mobile-zoom' : ''}`}
                                         loading="lazy"
                                     />
                                 </div>

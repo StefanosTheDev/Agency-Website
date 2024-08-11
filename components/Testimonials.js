@@ -6,18 +6,17 @@ import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 const testimonialsData = [
-  
     {
         testimonial: "ClearStackAI has been a game-changer for our business. Their expertise in NLU and dedication to understanding our business allows us to feel confident in our technology partner moving forward.",
         name: "Romeo Piro",
         title: "Co-Founder",
-        avatar: "https://robohash.org/quiaquorerum.png?size=50x50&set=set1"
+        avatar: "/Ramson.png"
     },
     {
-        testimonial: "Stefanos creative analysis and workflow optimization saved our Behavioral Health Company over 17 hours a week for our administrative staff. His consulting work was a game-changer, and we truly valued his expertise and dedication.",
+        testimonial: "Stefanos' creative analysis and workflow optimization saved our Behavioral Health Company over 17 hours a week for our administrative staff. His consulting work was a game-changer, and we truly valued his expertise and dedication.",
         name: "Vartan Hekimian",
         title: "CEO",
-        avatar: "https://robohash.org/asperioresvelit.png?size=50x50&set=set1"
+        avatar: "/AMVA.png"
     }
 ];
 
@@ -37,58 +36,59 @@ export default function Testimonials() {
     }, [controls, inView]);
 
     return (
-            <div className={"flex w-full items-center justify-center bg-white"}>
-
+        <div className="flex w-full items-center justify-center bg-white">
+            <motion.div
+                id="testimonials"
+                className="flex flex-col mx-auto md:flex-row bg-white py-12 h-[661px] px-6 md:px-16 gap-8 md:gap-16"
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={sectionVariants}
+                transition={{ duration: 1.5, delay: 0.2 }}
+            >
                 <motion.div
-                    id="testimonials"
-                    className="flex flex-col mx-auto md:flex-row bg-white py-12 h-[661px] px-6 md:px-16 gap-8 md:gap-16"
-                    ref={ref}
+                    className="flex flex-col pt-8 md:pt-20 w-full md:w-1/2"
                     initial="hidden"
                     animate={controls}
                     variants={sectionVariants}
-                    transition={{duration: 1.5, delay: 0.2}}
+                    transition={{ duration: 1.5, delay: 0.5 }}
                 >
-                    <motion.div
-                        className="flex flex-col pt-8 md:pt-20 w-full md:w-1/2"
-                        initial="hidden"
-                        animate={controls}
-                        variants={sectionVariants}
-                        transition={{duration: 1.5, delay: 0.5}}
-                    >
-                        <div
-                            className="mb-6 relative max-w-max px-4 py-2 font-sans text-xs font-bold text-black uppercase bg-[#DBDCDF] rounded-lg select-none whitespace-nowrap"
-                        >
-                            <span className="">Testimonials</span>
-                        </div>
-                        <h2 className="text-2xl md:text-3xl font-normal mb-6 text-center md:text-left">
-                            What Our Customers <span className="gradient-text-2 pr-4 font-medium">Say</span>
-                        </h2>
-                        <p className="text-base text-gray-600 text-center md:text-left">
-                        Discover how other businesses are transforming with ClearStackAI   </p>
-                    </motion.div>
+                    {/* Adjusting the Testimonials Heading */}
+                    <div className="testimonial-heading">
+                     <span>Testimonials</span>
+                    </div>
 
-                    <motion.div
-                        id="testimonial-carousel"
-                        className="flex flex-col w-full md:w-1/2 items-center overflow-hidden"
-                        initial="hidden"
-                        animate={controls}
-                        variants={sectionVariants}
-                        transition={{duration: 1.5, delay: 0.8}}
-                    >
-                        <Ticker duration={20} direction={TICKER_DIRECTION_UP}>
-                            {testimonialsData.map((testimonial, index) => (
-                                <div key={index} className="py-4">
-                                    <TestimonialTile
-                                        testimonial={testimonial.testimonial}
-                                        name={testimonial.name}
-                                        title={testimonial.title}
-                                        avatar={testimonial.avatar}
-                                    />
-                                </div>
-                            ))}
-                        </Ticker>
-                    </motion.div>
+
+                    <h2 className="text-2xl md:text-3xl font-normal mb-6 text-center md:text-left">
+                        What Our Customers <span className="gradient-text-2 pr-4 font-medium">Say</span>
+                    </h2>
+                    <p className="text-base text-gray-600 text-center md:text-left">
+                        Discover how other businesses are transforming with ClearStackAI
+                    </p>
                 </motion.div>
-            </div>
+
+                <motion.div
+                    id="testimonial-carousel"
+                    className="flex flex-col w-full md:w-1/2 items-center overflow-hidden"
+                    initial="hidden"
+                    animate={controls}
+                    variants={sectionVariants}
+                    transition={{ duration: 1.5, delay: 0.8 }}
+                >
+                    <Ticker duration={20} direction={TICKER_DIRECTION_UP}>
+                        {testimonialsData.map((testimonial, index) => (
+                            <div key={index} className="py-4">
+                                <TestimonialTile
+                                    testimonial={testimonial.testimonial}
+                                    name={testimonial.name}
+                                    title={testimonial.title}
+                                    avatar={testimonial.avatar}
+                                />
+                            </div>
+                        ))}
+                    </Ticker>
+                </motion.div>
+            </motion.div>
+        </div>
     );
 }
