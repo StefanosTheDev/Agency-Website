@@ -11,13 +11,13 @@ const testimonialsData = [
         testimonial: "ClearStackAI has been a game-changer for our business. Their expertise in NLU and dedication to understanding our business allows us to feel confident in our technology partner moving forward.",
         name: "Romeo Piro",
         title: "Co-Founder",
-        avatar: "/Ramson.png"
+        avatar: "https://robohash.org/quiaquorerum.png?size=50x50&set=set1"
     },
     {
         testimonial: "Stefanos creative analysis and workflow optimization saved our Behavioral Health Company over 17 hours a week for our administrative staff. His consulting work was a game-changer, and we truly valued his expertise and dedication.",
         name: "Vartan Hekimian",
         title: "CEO",
-        avatar: "/AMVA.png"
+        avatar: "https://robohash.org/asperioresvelit.png?size=50x50&set=set1"
     }
 ];
 
