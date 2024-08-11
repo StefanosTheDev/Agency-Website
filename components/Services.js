@@ -21,7 +21,7 @@ export default function Services() {
         {
             title: 'Custom Workflow Automations',
             description: 'Have a custom CRM or static processes slowing you down? Our experts will analyze your workflow and implement custom software solutions infused with automation to eliminate bottlenecks and boost efficiency.',
-            imgSrc: '/automation.svg',
+            imgSrc: '/auto.png',
         },
     ];
 
