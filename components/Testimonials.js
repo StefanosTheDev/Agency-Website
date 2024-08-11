@@ -7,13 +7,13 @@ import { useInView } from 'react-intersection-observer';
 
 const testimonialsData = [
     {
-        testimonial: "ClearStackAI has been a game-changer for our business. Their expertise in NLU and dedication to understanding our business allows us to feel confident in our technology partner moving forward.",
+        testimonial: "ClearStackAI has been a game-changer for our business. Their patience on understanding our business allows us to feel confident in our technology partner moving forward.",
         name: "Romeo Piro",
         title: "Co-Founder",
         avatar: "https://robohash.org/asperioresvelit.png?size=50x50&set=set1"
     },
     {
-        testimonial: "Stefanos' creative analysis and workflow optimization saved our Behavioral Health Company over 17 hours a week for our administrative staff. His consulting work was a game-changer, and we truly valued his expertise and dedication.",
+        testimonial: "Stefanos' creative analysis to optimize workflwos saved our Behavioral Health Company over 10 hours a week for our administrative staff. His consulting work was a game-changer, and we truly valued his expertise and dedication.",
         name: "Vartan Hekimian",
         title: "CEO",
         avatar: "https://robohash.org/quiaquorerum.png?size=50x50&set=set1"
